@@ -20,10 +20,6 @@ def count_tokens(text):
 base.init_home_state("Your 24/7 AI financial companion")
 
 
-clear_button = st.sidebar.button("Xoá lịch sử chat", key="clear")
-if clear_button:
-    base.clear_chat_history()
-
 def generate_response(prompt):
     bedrock = boto3.client(service_name="bedrock-runtime")  
     
@@ -79,14 +75,9 @@ def generate_response(prompt):
                         text = delta_obj.get('text', None)
                         yield text
 
-
-if prompt := st.chat_input():
-    st.session_state.show_animation = False
-    st.session_state.messages.append({"role": "user", "content": prompt})
-    base.right_message(st, prompt)
+prompt = st.chat_input()
 
 if st.session_state.messages[-1]["role"] != "assistant":
-    st.session_state.show_animation = False
     with st.chat_message(
         "user"
     ):

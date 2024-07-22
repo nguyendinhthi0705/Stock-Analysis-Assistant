@@ -285,7 +285,7 @@ def initializeAgent():
     agent="zero-shot-react-description",
     tools=tools,
     verbose=True,
-    max_iteration=4,
+    max_iteration=1,
     return_intermediate_steps=True,
     handle_parsing_errors=True,
     output_key="output",
@@ -353,7 +353,7 @@ def initializeAgent():
         Thought: {{agent_scratchpad}}
 """ 
 
-    zero_shot_agent.agent.llm_chain.prompt.template=prompt
+    zero_shot_agent.agent.llm_chain.prompt.template = prompt 
     return zero_shot_agent
 
 tools = [

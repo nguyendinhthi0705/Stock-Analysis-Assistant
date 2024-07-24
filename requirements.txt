@@ -19,3 +19,4 @@ pandas-datareader
 anthropic
 vnstock3
 seaborn
+transformers

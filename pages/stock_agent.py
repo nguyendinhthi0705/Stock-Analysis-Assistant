@@ -25,7 +25,7 @@ base.init_home_state("Your 24/7 AI financial companion")
 anthropic = Anthropic()
 knowledge_base_id=("JAHBTIXPHK")
 
-modelId = "anthropic.claude-3-sonnet-20240229-v1:0"
+modelId = "anthropic.claude-3-5-sonnet-20240620-v1:0"
 
 clear_button = st.sidebar.button("Xoá lịch sử chat", key="clear")
 if clear_button:

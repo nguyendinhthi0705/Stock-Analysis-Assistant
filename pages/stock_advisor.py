@@ -76,14 +76,7 @@ def generate_response(prompt):
                         yield text
 
 prompt = st.chat_input()
-
-if st.session_state.messages[-1]["role"] != "assistant":
-    with st.chat_message(
-        "user"
-    ):
-        if prompt:
-            response = generate_response(prompt)
-            full_response = st.write_stream(response)
-            message = {"role": "assistant", "content": full_response}
-            st.session_state.messages.append(message)
-
+if prompt:
+    response = generate_response(prompt)
+    full_response = st.write_stream(response)
+    

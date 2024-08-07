@@ -95,6 +95,7 @@ import numpy as np
 from datetime import date,datetime,timedelta
 from plotly import graph_objs as go
 from prophet import Prophet
+import boto3, json
 
 
 st.header("Forecasting")
@@ -106,6 +107,53 @@ snp500 = pd.read_csv("SP500.csv")
 symbols = snp500['Symbol'].sort_values().tolist()    
 
 ticker = st.sidebar.selectbox('Chọn mã chứng khoán', symbols)
+
+# Model AI
+def call_claude_sonet_stream(prompt):
+    prompt_config = {
+        "anthropic_version": "bedrock-2023-05-31",
+        "max_tokens": 2000,
+        "temperature": 0, 
+        "top_k": 0,
+        "messages": [
+            {
+                "role": "user",
+                "content": [
+                    {"type": "text", "text": prompt},
+                ],
+            }
+        ],
+    }
+
+    body = json.dumps(prompt_config)
+
+    modelId = "anthropic.claude-3-sonnet-20240229-v1:0"
+    accept = "application/json"
+    contentType = "application/json"
+
+    bedrock = boto3.client(service_name="bedrock-runtime")  
+    response = bedrock.invoke_model_with_response_stream(
+        body=body, modelId=modelId, accept=accept, contentType=contentType
+    )
+
+    stream = response['body']
+    if stream:
+        for event in stream:
+            chunk = event.get('chunk')
+            if chunk:
+                 delta = json.loads(chunk.get('bytes').decode()).get("delta")
+                 if delta:
+                     yield delta.get("text")
+
+def forecast_price(question, docs): 
+    prompt = """Human: here is the data price:
+        <text>""" + str(docs) + """</text>
+        Question: """ + question + """ 
+    \n\nAssistant: """
+    return call_claude_sonet_stream(prompt)
+
+
+
 # Preprocess the data
 data = yf.download(ticker,start="2024-01-01", end=date.today().strftime("%Y-%m-%d"))
 df = data.reset_index()[["Date", "Open", "High", "Low", "Close"]].copy()
@@ -166,6 +214,10 @@ st.write("Forecast Components")
 fig2 = m.plot_components(forecast)
 st.write(fig2)
 
-            
+# Suggestion
+st.title('Dự đoán theo predict price')
+st.write("---")
+response = forecast_price(question="Dựa vào các chỉ số trên đưa ra phân tích giá chứng khoán trong thời gian tới,thời điểm cụ thể để mua vào và bán ra cổ phiếu, giá cổ phiếu là VND", docs = forecast)
+st.write_stream(response)            
 st.button("Exit")
 st.write("---")

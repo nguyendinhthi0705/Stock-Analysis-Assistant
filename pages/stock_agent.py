@@ -420,15 +420,4 @@ with container:
         st_callback = StreamlitCallbackHandler(st.container())
         response_stream, query = generate_response(user_input,st_callback)
 
-    if prompt := st.chat_input():
-     st.session_state.messages.append({"role": "user", "content": prompt})
-     base.right_message(st, prompt)
-
-    if st.session_state.messages[-1]["role"] != "assistant":
-     st.session_state.show_animation = False
-     if prompt:
-         st_callback = StreamlitCallbackHandler()
-         response = generate_response(prompt, st_callback)
-         full_response = st.write_stream(response)
-         message = {"role": "assistant", "content": full_response}
-         st.session_state.messages.append(message)
+   

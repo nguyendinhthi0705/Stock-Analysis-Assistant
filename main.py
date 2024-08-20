@@ -7,5 +7,6 @@ pg = st.navigation([
     st.Page("pages/stock_analytics.py", title="Phân tích kỹ thuật cổ phiếu", icon=":material/work:"),
     st.Page("pages/stock_advisor.py", title="Tra cứu thông tin chứng khoán", icon=":material/attach_money:"),
     st.Page("pages/stock_agent.py", title="Trợ lý chứng khoán", icon=":material/lock_open:"),
+    st.Page("pages/technical_analytics.py", title="Phân tích kỹ thuật cổ phiếu", icon=":material/work:"),
 ])
 pg.run()

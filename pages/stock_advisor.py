@@ -8,7 +8,7 @@ import base
 
 anthropic = Anthropic()
 
-knowledge_base_id=('JAHBTIXPHK'),
+knowledge_base_id=('ZWPXJNPCQL'),
 modelId = "anthropic.claude-3-sonnet-20240229-v1:0"
 
 st.set_page_config(page_title="Tư vấn chứng khoán",  layout="wide")
@@ -35,6 +35,7 @@ def generate_response(prompt):
     )
     
     retrieved_docs = retriever.get_relevant_documents(prompt + " 2024")
+    print(retrieved_docs)
     context = "\n".join([doc.page_content for doc in retrieved_docs])
     conversation_history = "\n".join([f"{msg['role'].capitalize()}: {msg['content']}" for msg in st.session_state['messages']])
 

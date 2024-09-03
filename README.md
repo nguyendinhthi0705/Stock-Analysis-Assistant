@@ -1,4 +1,4 @@
-# Overview Study-Assistant
+# Overview Stock Analyis Assistant
 This is a simple demo of Amazon Bedrock and Anthropic Claude 3 Sonnet model with langchain and streamlit. For more detail please reference the following link: <br />
 - <a href="https://aws.amazon.com/bedrock/" target="_blank">https://aws.amazon.com/bedrock/ </a>
 - <a href="https://www.anthropic.com/news/claude-3-family" target="_blank">Claude 3 </a>
@@ -24,19 +24,19 @@ Setup <a href='https://docs.aws.amazon.com/cli/latest/userguide/getting-started-
 
 # Demo
 
-## A Simple Chat 
-[![Chat](http://img.youtube.com/vi/PdX7i0A4a-M/0.jpg)](https://www.youtube.com/watch?v=PdX7i0A4a-M)]
+## A Simple Analys Stock HPG
+[![Analyse a Simple Stock](http://img.youtube.com/vi/7gp-xVYfMdM/0.jpg)](https://www.youtube.com/watch?v=7gp-xVYfMdM)]
 
-## Questions and Anwsers
-[![Questions and Anwsers](http://img.youtube.com/vi/ciJfAhyRjTI/0.jpg)](https://www.youtube.com/watch?v=ciJfAhyRjTI)]
+## Technical Analysis for Amazon and Apple
+[![Technical Analysis for Amazon and Apple](http://img.youtube.com/vi/QfPHOgvoRIQ/0.jpg)](https://youtu.be/QfPHOgvoRIQ)]
 
-## Summary a Lecture
-[![Summary](http://img.youtube.com/vi/5JpeWmbHMi0/0.jpg)](https://www.youtube.com/watch?v=5JpeWmbHMi0)]
+## Compare two different stock SSI and HCM
+[![Compare two different stock SSI and HCM](http://img.youtube.com/vi/Hpwmiw9YHvw/0.jpg)](https://youtu.be/Hpwmiw9YHvw)]
 
-## Create Multi Choice Questions
-[![Create Multi Choice Questions](http://img.youtube.com/vi/AE9gj19a9t0/0.jpg)](https://www.youtube.com/watch?v=AE9gj19a9t0)]
+## Use GenAI to analysis PNJ - a top jewelry retail company in Vietnam
+[![Use GenAI to analysis PNJ - a top jewelry retail company in Vietnam](http://img.youtube.com/vi/FfBg_PZPwZY/0.jpg)](https://youtu.be/FfBg_PZPwZY)]
 
-## Suggest a Better Writing
-[![Suggest Better Writing](http://img.youtube.com/vi/7xBR5rtcp30/0.jpg)](https://www.youtube.com/watch?v=7xBR5rtcp30)]
+## Analysis Stock by using GenAI to analyze Hoa Phat - a Top Steel manufactoring in Vietnam
+[![Analysis Stock by using GenAI to analyze Hoa Phat](http://img.youtube.com/vi/bFfjT4e-o9s/0.jpg)](https://youtu.be/bFfjT4e-o9s)]
 
 

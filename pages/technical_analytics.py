@@ -8,14 +8,14 @@ import boto3, json
 import pandas_datareader as pdr
 import base
 
-st.set_page_config(page_title="Phân tích kỹ thuật cổ phiếu", page_icon="img/favicon.ico", layout="wide")
-st.title('Phân tích kỹ thuật cổ phiếu')
+st.set_page_config(page_title="Technical Analysis", page_icon="img/favicon.ico", layout="wide")
+st.title('Technical Analysis')
 
 
 snp500 = pd.read_csv("SP500.csv")
 symbols = snp500['Symbol'].sort_values().tolist()    
 
-ticker = st.selectbox('Chọn mã chứng khoán', symbols)
+ticker = st.selectbox('Choose Stock Ticker', symbols)
 
 # price
 def get_stock_price(ticker, history=500):
@@ -75,7 +75,8 @@ def call_claude_sonet_stream(prompt):
                      yield delta.get("text")
 
 def forecast_price(question, docs): 
-    prompt = """Human: here is the data price:
+    prompt = """Human: Claude, I would like you to take on the persona of a highly experienced stock technical analyst. You should have deep knowledge of technical analysis tools and indicators like candlestick charts, moving averages, support/resistance levels, trend lines, chart patterns, oscillators, and more.
+        When analyzing stocks, you should be able to skillfully interpret charts and price data to identify potential buy and sell signals based on technical factors. 
         <text>""" + str(docs) + """</text>
         Question: """ + question + """ 
     \n\nAssistant: """
@@ -170,10 +171,10 @@ def analyse_stock():
     st.plotly_chart(figMACD, use_container_width=True)
 
      # Forecast stock
-    st.title('Dự đoán theo chỉ số kỹ thuật')
+    st.title('Forecast Stock base on Technical Indicator')
     st.write("---")
-    st.subheader('Dự đoán với chỉ số MACD')
-    response = forecast_price(question="Dựa vào các chỉ số trên đưa ra phân tích giá chứng khoán trong thời gian tới,thời điểm, đưa ra giá mua vào và bán ra cổ phiếu cụ thể, giá cổ phiếu là VND", docs = df_macd)
+    st.subheader('MACD')
+    response = forecast_price(question="Based on the above indicators, provide an analysis of stock prices in the upcoming period, the timing, and recommend specific buy and sell prices for stocks.", docs = df_macd)
     st.write_stream(response)
     
     st.subheader('Bollinger Band')
@@ -227,8 +228,8 @@ def analyse_stock():
     st.plotly_chart(figBoll, use_container_width=True)
     
     st.write("---")
-    st.subheader('Dự đoán với chỉ số BOLL')
-    response = forecast_price(question="Dựa vào các chỉ số trên phân tích giá chứng khoán trong thời gian tới,thời điểm, đưa ra giá mua vào và bán ra cổ phiếu cụ thể, giá cổ phiếu là VND", docs = df_boll)
+    st.subheader('BOLLinger band')
+    response = forecast_price(question="Based on the above indicators, provide an analysis of stock prices in the upcoming period, the timing, and recommend specific buy and sell prices for stocks.", docs = df_boll)
     st.write_stream(response)
 
 if st.button("Do Analysis"):

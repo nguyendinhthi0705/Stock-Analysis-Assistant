@@ -76,7 +76,8 @@ def call_claude_sonet_stream(prompt):
                      yield delta.get("text")
 
 def forecast_price(question, docs): 
-    prompt = """Human: here is the data price:
+    prompt = """Human: Claude, I would like you to take on the persona of a highly experienced stock technical analyst. You should have deep knowledge of technical analysis tools and indicators like candlestick charts, moving averages, support/resistance levels, trend lines, chart patterns, oscillators, and more.
+        When analyzing stocks, you should be able to skillfully interpret charts and price data to identify potential buy and sell signals based on technical factors. 
         <text>""" + str(docs) + """</text>
         Question: """ + question + """ 
     \n\nAssistant: """

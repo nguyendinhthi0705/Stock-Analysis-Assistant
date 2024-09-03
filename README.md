@@ -24,7 +24,7 @@ Setup <a href='https://docs.aws.amazon.com/cli/latest/userguide/getting-started-
 
 # Demo
 
-## A Simple Analys Stock HPG
+## A Simple Analysis Stock HPG
 [![Analyse a Simple Stock](http://img.youtube.com/vi/7gp-xVYfMdM/0.jpg)](https://www.youtube.com/watch?v=7gp-xVYfMdM)]
 
 ## Technical Analysis for Amazon and Apple
@@ -37,6 +37,6 @@ Setup <a href='https://docs.aws.amazon.com/cli/latest/userguide/getting-started-
 [![Use GenAI to analysis PNJ - a top jewelry retail company in Vietnam](http://img.youtube.com/vi/FfBg_PZPwZY/0.jpg)](https://youtu.be/FfBg_PZPwZY)]
 
 ## Analysis Stock by using GenAI to analyze Hoa Phat - a Top Steel manufactoring in Vietnam
-[![Analysis Stock by using GenAI to analyze Hoa Phat](http://img.youtube.com/vi/bFfjT4e-o9s/0.jpg)](https://youtu.be/bFfjT4e-o9s)]
+[![Analysis Stock by using GenAI to analyze Hoa Phat](http://img.youtube.com/vi/bFfjT4e-o9s/0.jpg)](https://youtu.be/bFfjT4e-o9s)
 
 

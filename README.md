@@ -29,7 +29,7 @@ The project demonstrates how AI can assist in stock analysis by providing valuab
 To set up the **Stock Analysis Assistant** project on your local machine:
 
 ```bash
-git clone https://github.com/nguyendinhthi0705/Study-Assistant.git
+git clone https://github.com/awsstudygroup/AWS-Stock-Analysis-Assistant
 cd Stock-Analysis-Assistant
 ```
 
